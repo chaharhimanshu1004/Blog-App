@@ -3,8 +3,8 @@ const router = express.Router();
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
 const usermodel = require('../modals/User')
-
 require('dotenv').config();
+
 
 router.post('/register',async(req,res)=>{
     try{
@@ -40,6 +40,11 @@ router.post('/login',async(req,res)=>{
         if(!isValidPassword){
             return res.json({message:"Password doesn't match"})
         }
+        //  --------    jwt token -- and cookie    ------------
+        const token = jwt.sign({username,id:userExists._id}, process.env.secret, {expiresIn:'2h'});
+        res.cookie('token', token, { httpOnly: true });
+        res.status(200).json({ message: 'Login successful', id: userExists._id, username });
+        
 
     }catch(err){
         res.status(500).json({message:"Error in Loggin in ! Please try again after some time!"})

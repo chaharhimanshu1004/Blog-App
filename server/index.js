@@ -14,10 +14,9 @@ app.use(cors())
 app.use(express.json());
 
 
-
-
 const PORT = process.env.PORT || 6005
 app.use(express.json());
+
 
 
 app.get('/', (req, res) => {

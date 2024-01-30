@@ -1,0 +1,23 @@
+.top{
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 80px;
+    padding-top: 10px;
+    align-items: center;
+}
+.functions{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.heading{
+    font-size: 20px;
+    font-weight: bold;
+}
+.btn{
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 18px;
+}
+

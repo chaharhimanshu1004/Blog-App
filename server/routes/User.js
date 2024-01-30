@@ -42,8 +42,7 @@ router.post('/login',async(req,res)=>{
         }
         //  --------    jwt token -- and cookie    ------------
         const token = jwt.sign({username,id:userExists._id}, process.env.secret, {expiresIn:'2h'});
-        res.cookie('token', token, { httpOnly: true });
-        res.status(200).json({ message: 'Login successful', id: userExists._id, username });
+        res.status(200).cookie('token', token, { httpOnly: true }).json({ message: 'Login successful', id: userExists._id, username });
         
 
     }catch(err){

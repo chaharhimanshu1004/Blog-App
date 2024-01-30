@@ -8,14 +8,22 @@ export default function Header() {
   const handleLoginClick = () => {
     navigate('/login');
   };
+  const handleRegisterClick = ()=>{
+    navigate('register')
+  }
+  const handleBlogClick = ()=>{
+    navigate('/');
+  }
 
   return (
     <div  className='Header'>
         <div className="top">
-            <div className="heading">MyBlog</div>
+            <div className="heading">
+              <button onClick={handleBlogClick}>MyBlog</button>
+            </div>
             <div className="functions">
                 <button className='btn' onClick={handleLoginClick}>Login</button>
-                <button className='btn'>Register</button>
+                <button className='btn' onClick={handleRegisterClick}>Register</button>
             </div>
         </div>
     </div>

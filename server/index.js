@@ -10,6 +10,7 @@ const app = express();
 mongoose.connect(process.env.MONGO_URI).then(()=>{console.log('DataBase is connected !!')}).catch((e)=>{console.log('Error in connecting database')})
 
 
+
 app.use(cors());
 app.use(express.json());
 

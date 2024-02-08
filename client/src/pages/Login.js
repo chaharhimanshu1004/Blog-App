@@ -2,12 +2,19 @@ import React from "react";
 import "../styles/Login.css";
 import { useState } from "react";
 import axios from "axios";
-// import { login } from '../slices/userSlice'
-import { useDispatch } from "react-redux";
+import { login } from '../slices/userSlice'
+import {  useDispatch } from "react-redux";
+
+
 
 export default function Login() {
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+
+
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -22,7 +29,18 @@ export default function Login() {
       if (response.data.message == `Password doesn't match`) {
         alert("Password doesnt match");
       }
+
+      dispatch(login({
+        name:username,
+        userId:response.data.id,
+      }));
+      const userId = response.data.id;
+      localStorage.setItem('user',JSON.stringify({username,userId}))
+
+      
+      
       console.log(response);
+
       alert("LoggedIn");
     } catch (err) {
       alert("Error in loggin in");

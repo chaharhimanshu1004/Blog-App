@@ -4,14 +4,21 @@ import { useState } from "react";
 import axios from "axios";
 import { login } from '../slices/userSlice'
 import {  useDispatch } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+import toast from "react-hot-toast";
 
 
 
 export default function Login() {
 
+  const navigate = useNavigate();
+
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+
+
 
 
 
@@ -36,12 +43,12 @@ export default function Login() {
       }));
       const userId = response.data.id;
       localStorage.setItem('user',JSON.stringify({username,userId}))
+      toast.success('Successfully LoggedIn !!');
+      navigate('/');
 
-      
-      
-      console.log(response);
 
-      alert("LoggedIn");
+    
+
     } catch (err) {
       alert("Error in loggin in");
       console.log(err);

@@ -28,7 +28,7 @@ function App() {
       }))
     }
   },[dispatch])
-  console.log(user);
+
 
 
 

@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from './slices/userSlice';
 import { login } from './slices/userSlice';
 import CreatePost from './pages/CreatePost';
+import Home from './pages/Home';
 
 axios.defaults.withCredentials = true;
 
@@ -37,6 +38,7 @@ function App() {
       <BrowserRouter>
         <Header/>
         <Routes>
+          <Route path='/' element={<Home/>} ></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/register' element={<Register/>}></Route>
           <Route path='/createpost' element={<CreatePost/>}></Route>

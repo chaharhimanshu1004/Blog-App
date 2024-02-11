@@ -39,5 +39,10 @@ router.post('/createPost',uploadMiddleware.single('file'), async(req, res) => {
     console.log(err);
    }
 
+});
+router.get('/getposts',async(req,res)=>{
+   const posts=await postModel.find();
+   res.status(200).json(posts);
+
 })
 module.exports = router;

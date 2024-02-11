@@ -21,17 +21,10 @@ const CreatePost = () => {
             );
             console.log(response);
 
-
-
         }catch(err){
             console.log(err);
             console.log('error occurs')
         }
-        
-        
-
-
-       
     }
 
   return (

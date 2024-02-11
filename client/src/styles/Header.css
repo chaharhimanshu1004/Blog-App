@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     padding-inline: 80px;
-    padding-top: 10px;
+    padding-top: 14px;
     align-items: center;
 }
 .functions{
@@ -12,7 +12,7 @@
 }
 .heading button{
     font-size: 20px;
-    font-weight: bold;
+    font-weight: bolder;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -22,6 +22,8 @@
     border: none;
     cursor: pointer;
     background-color: transparent;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(87, 19, 159, 0.954);
 }
 

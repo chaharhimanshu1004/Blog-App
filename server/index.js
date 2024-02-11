@@ -10,6 +10,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(cookieParser());
+app.use('/uploads', express.static('uploads'));
 
 app.use(cors(
     {

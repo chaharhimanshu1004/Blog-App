@@ -13,8 +13,8 @@ const PostSchema = new mongoose.Schema({
         type:String,
     },
     author:{
-        type:String,
-    }
+        type:mongoose.Schema.Types.ObjectId, ref:'User'
+    },
 });
 const Post = mongoose.model('Post',PostSchema);
 module.exports = Post;

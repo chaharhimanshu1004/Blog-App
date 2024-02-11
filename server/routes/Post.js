@@ -41,7 +41,8 @@ router.post('/createPost',uploadMiddleware.single('file'), async(req, res) => {
 
 });
 router.get('/getposts',async(req,res)=>{
-   const posts=await postModel.find();
+   const posts=await postModel.find().populate('author', ['username']).sort({createdAt: -1}).limit(20);
+   
    res.status(200).json(posts);
 
 })

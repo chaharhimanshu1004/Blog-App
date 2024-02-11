@@ -1,4 +1,9 @@
-.image{
-    width: 200px;
+.image img{
+    width: 280px;
     height: 200px;
+}
+.post{
+    display: flex;
+    padding-inline: 50px;
+    margin-top: 35px;
 }

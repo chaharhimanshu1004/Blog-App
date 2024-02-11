@@ -14,13 +14,15 @@ const Home = () => {
     },[]);
     console.log(posts)
 
-
   return (
-    <div>
-        {posts.map((post,index)=>(<Post image={posts[index].image} title={posts[index].title} summary={posts[index].summary}/>))}
+
+      <div style={{marginTop:'70px'}}>
+      {posts.map((post,index)=>(<Post id={posts[index]._id} key={index} image={posts[index].image} title={posts[index].title} author={posts[index].author} summary={posts[index].summary}/>))}
+
+      </div>
         
       
-    </div>
+
   )
 }
 

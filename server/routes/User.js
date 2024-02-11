@@ -47,13 +47,13 @@ router.post("/login", async (req, res) => {
       process.env.secret,
       { expiresIn: "2h" }
     );
-
     res.cookie("token", token,{httpOnly:true});
     res.status(200).json({ message: "Login successful", id: userExists._id, username,token });
     
     
     
   } catch (err) {
+    console.log(err.message);
     res
       .status(500)
       .json({

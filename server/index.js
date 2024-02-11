@@ -5,12 +5,11 @@ const postRoute = require('./routes/Post')
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 
-
 require('dotenv').config();
 
 
 const app = express();
-app.use(cookieParser)
+app.use(cookieParser());
 
 app.use(cors(
     {

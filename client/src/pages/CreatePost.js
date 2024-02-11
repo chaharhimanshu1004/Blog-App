@@ -17,9 +17,9 @@ const CreatePost = () => {
             data.set('content',content);
             data.set('file',files[0]);
             const response = await axios.post('http://localhost:6004/api/users/createPost',
-                data
+                data ,
             );
-            console.log('Frontend Here')
+            console.log(response);
 
 
 

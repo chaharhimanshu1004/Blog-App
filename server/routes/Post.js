@@ -9,28 +9,27 @@ require('dotenv').config();
 
 router.post('/createPost',uploadMiddleware.single('file'), async(req, res) => {
    try{
-    // const {originalname,path} = req.file;
-    // const parts = originalname.split('.');
-    // const ext = parts[parts.length - 1];
-    // const newPath = path+'.'+ext;
-    // fs.renameSync(path, newPath);
-    // const token = req.cookies.token;
-    // console.log("backendHere")
-    // jwt.verify(token,process.env.secret,{},async(err,info)=>{
-    //     if(err)throw err
-    //     const {title,summary,content} = req.body;
-    //     console.log(title,summary,content)
-    //     const newPost = new postModel({
-    //         title,
-    //         summary,
-    //         content,
-    //         image:newPath,
-    //         author: info.id
-    //     })
-    //     await newPost.save();
-    //     res.status(200).json(newPost);
+    const {originalname,path} = req.file;
+    const parts = originalname.split('.');
+    const ext = parts[parts.length - 1];
+    const newPath = path+'.'+ext;
+    fs.renameSync(path, newPath);
+    const token = req.cookies.token;
+    console.log("backendHere")
+    jwt.verify(token,process.env.secret,{},async(err,info)=>{
+        if(err)throw err
+        const {title,summary,content} = req.body;
+        const newPost = new postModel({
+            title,
+            summary,
+            content,
+            image:newPath,
+            author: info.id
+        })
+        await newPost.save();
+        res.status(200).json(newPost);
         
-    // })
+    })
     
     
 

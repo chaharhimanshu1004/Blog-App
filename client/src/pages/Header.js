@@ -21,7 +21,7 @@ export default function Header() {
   }
    const handleLogout = () =>{
     localStorage.removeItem('user');
-    console.log("logged out ");
+
     navigate('/')
     window.location.reload();
   

@@ -11,7 +11,7 @@ const Post = ({title,summary,image,id,author,content}) => {
       <div className="content">
         <h2>{title}</h2>
         <p>{summary}</p>
-        <strong>{author.username}</strong>
+        <p className='contentAuthor'><strong>Created by - {author.username}</strong></p>
       </div>
     
       

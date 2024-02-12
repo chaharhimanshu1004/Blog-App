@@ -15,7 +15,6 @@ router.post('/createPost',uploadMiddleware.single('file'), async(req, res) => {
     const newPath = path+'.'+ext;
     fs.renameSync(path, newPath);
     const token = req.cookies.token;
-    console.log("backendHere")
     jwt.verify(token,process.env.secret,{},async(err,info)=>{
         if(err)throw err
         const {title,summary,content} = req.body;

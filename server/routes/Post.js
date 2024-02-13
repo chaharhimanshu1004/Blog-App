@@ -44,5 +44,20 @@ router.get('/getposts',async(req,res)=>{
    
    res.status(200).json(posts);
 
-})
+});
+
+router.get('/post/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        console.log('Fetching post with ID:', id);
+        const post = await postModel.findById(id).populate('author', ['username']);
+        if (!post) {
+            return res.status(404).json({ error: 'Post not found' });
+        }
+        res.status(200).json(post);
+    } catch (err) {
+        console.error('Error while fetching the post:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
 module.exports = router;

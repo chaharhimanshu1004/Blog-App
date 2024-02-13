@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from './slices/userSlice';
 import { login } from './slices/userSlice';
 import CreatePost from './pages/CreatePost';
+import PostPage from './components/PostPage';
 import Home from './pages/Home';
 
 axios.defaults.withCredentials = true;
@@ -42,6 +43,7 @@ function App() {
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/register' element={<Register/>}></Route>
           <Route path='/createpost' element={<CreatePost/>}></Route>
+          <Route path='/post/:id' element={<PostPage></PostPage>}></Route>
         </Routes>
       </BrowserRouter>
       

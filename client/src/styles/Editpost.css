@@ -1,0 +1,44 @@
+.post{
+    margin-top: 40px;
+}
+input{
+    width: 80vw;
+    padding: 6px;
+}
+.title , .summary , .content {
+    padding-inline: 78px;
+}
+.title{
+    margin-top: 50px;
+}
+.img{
+    border: 1px solid black;
+    width: 80vw;
+    margin-left: 78px;
+    padding: 6px;
+    margin-top: 18px;
+}
+.summary , .title , .content{
+    margin-top: 18px;
+}
+.btnPost{
+   display: flex;
+   margin-top: 46px;
+
+   margin-left: 600px;
+    
+}
+.btnPost button{
+    padding-inline:  12px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-weight: bold;
+    font-size: medium;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    background-color:  rgb(0, 110, 255);
+
+}
+
+

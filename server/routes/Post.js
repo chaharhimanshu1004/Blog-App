@@ -60,4 +60,31 @@ router.get('/post/:id', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
+router.put('/post',uploadMiddleware.single('file'), async (req, res) => {
+    let newPath = null;
+    if (req.file) {
+      const {originalname,path} = req.file;
+      const parts = originalname.split('.');
+      const ext = parts[parts.length - 1];
+      newPath = path+'.'+ext;
+      fs.renameSync(path, newPath);
+    }
+    const {token} = req.cookies;
+    jwt.verify(token, process.env.secret, {}, async (err,info) => {
+        if (err) throw err;
+        const {id,title,summary,content} = req.body;
+        const postDoc = await Post.findById(id);
+
+        await postDoc.update({
+          title,
+          summary,
+          content,
+          cover: newPath ? newPath : postDoc.cover,
+        });
+    
+        res.json(postDoc);
+      });
+  
+});
 module.exports = router;

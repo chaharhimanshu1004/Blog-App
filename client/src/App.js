@@ -12,6 +12,7 @@ import { login } from './slices/userSlice';
 import CreatePost from './pages/CreatePost';
 import PostPage from './components/PostPage';
 import Home from './pages/Home';
+import EditPage from './pages/EditPage';
 
 axios.defaults.withCredentials = true;
 
@@ -44,6 +45,7 @@ function App() {
           <Route path='/register' element={<Register/>}></Route>
           <Route path='/createpost' element={<CreatePost/>}></Route>
           <Route path='/post/:id' element={<PostPage></PostPage>}></Route>
+          <Route path='/edit/:id' element={<EditPage/>}></Route>
         </Routes>
       </BrowserRouter>
       

@@ -1,0 +1,32 @@
+h1{
+    text-align: center;
+}
+.postImage{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.edit{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h3{
+    text-align: center;
+}
+.user h2{
+    margin-top: 60px;
+    text-align: center;
+
+}
+.postImage img{
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+}
+h4{
+    margin-top: 30px;
+}
